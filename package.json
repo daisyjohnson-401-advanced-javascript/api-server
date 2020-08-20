@@ -4,8 +4,19 @@
   "description": "",
   "main": "index.js",
   "directories": {
-    "doc": "docs"
+    "doc": "docs",
+    "lib": "lib"
   },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "fsevents": "^2.1.3",
+    "jest": "^26.4.0",
+    "mongoose": "^5.10.0",
+    "node.js": "0.0.1-security",
+    "supertest": "^4.0.2"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "jest --verbose --coverage",
     "test-watch": "jest --watchAll --verbose --coverage"
@@ -20,14 +31,5 @@
   "bugs": {
     "url": "https://github.com/daisyjohnson-401-advanced-javascript/api-server/issues"
   },
-  "homepage": "https://github.com/daisyjohnson-401-advanced-javascript/api-server#readme",
-  "dependencies": {
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "jest": "^26.4.0"
-  },
-  "devDependencies": {
-    "jest": "^26.4.0",
-    "supertest": "^4.0.2"
-  }
+  "homepage": "https://github.com/daisyjohnson-401-advanced-javascript/api-server#readme"
 }
