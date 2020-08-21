@@ -4,7 +4,7 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
 // Require server
-const server = require('./lib/server.js');
+
 
 
 const MONGODB_URI = 'mongodb://localhost:27017/';
@@ -17,4 +17,5 @@ const mongooseOptions = {
 mongoose.connect(MONGODB_URI, mongooseOptions);
 
 //Call the start method from server
+const server = require('./lib/server.js');
 server.start(3000);

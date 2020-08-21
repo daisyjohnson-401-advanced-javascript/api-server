@@ -5,11 +5,11 @@
 [URL TO SWAGGER](https://app.swaggerhub.com/apis/daisyjanejohnson/myAPI/0.1#/servers)
 
 ### Setup
-npm i dotenv express
-### Tests
-To run tests 
-NPM i supertest jest
+npm i @code-fellows/supergoose dotenv express  fsevents jest mongoose node.js supertest
 
-npm test
+
+### Tests
+
+Run NPM test to run test suites
 
 ### UML
