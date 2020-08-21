@@ -12,14 +12,12 @@ describe('web server', () => {
       .get('/bad')
       .then(results => {
         expect(results.status).toBe(500);
-      });
+      });//.catch(console.error);
 
   });
 
   it('should respond with a 404 on an invalid route', async () => {
     
-    // const results = await mockRequest.get('/bad');
-    // expect ( results.status).toBe(500);
     return mockRequest
       .get('/foobar')
       .then(results => {
@@ -43,7 +41,7 @@ describe('web server', () => {
     return mockRequest
       .get('/api/v1/food')
       .then(results => {
-        expect(results.body.logged).toBe(true);
+        expect(results.body.logged).toBe(200);
       }).catch(console.error);
 
   });
