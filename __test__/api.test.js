@@ -4,7 +4,7 @@ const { server } = require('../lib/server.js');
 const supergoose = require('@code-fellows/supergoose');
 const mockRequest = supergoose(server);
 
-describe('Food API', () => {
+describe.skip('Food API', () => {
   it('can post() a new food', () => {
     let obj = { name: 'apples', calories: 100, type: 'FRUIT' };
     return mockRequest.post('/api/v1/food')
