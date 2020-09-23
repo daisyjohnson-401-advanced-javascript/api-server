@@ -1,6 +1,7 @@
 require('@code-fellows/supergoose');
+const { verifyProps } = require('../helpers');
 
-const productModel = require('../../lib/models/product/product-collection.js');
+const productModel = require('../../lib/models/product/products-model.js');
 
 beforeEach(async () => {
   await productModel.schema.deleteMany({});
@@ -16,14 +17,14 @@ it('should get all when empty', async () => {
 });
 
 it('should create', async () => {
-  const forkData = {name:'fork', display_name:'Fork', category:'silverware', description:'pointy guy'};
+  const forkData = {name:'fork', display_name:'Fork', category:'silverware'};
   const createdProduct = await productModel.post(forkData);
   forkData._id = createdProduct._id;
   verifyProps(forkData, createdProduct);
 });
 
 it('should get all when not empty', async () => {
-  const forkData = {name:'fork', display_name:'Fork', category:'silverware',description:'pointy guy' };
+  const forkData = {name:'fork', display_name:'Fork', category:'silverware'};
   await productModel.post(forkData);
   const allProducts = await productModel.get();
   expect(allProducts.length).toBe(1);
@@ -31,7 +32,7 @@ it('should get all when not empty', async () => {
 });
 
 it('should get one when not empty', async () => {
-  const forkData = {name:'fork', display_name:'Fork', category:'silverware',description:'pointy guy' };
+  const forkData = {name:'fork', display_name:'Fork', category:'silverware'};
   const forkCreated = await productModel.post(forkData);
   const forkRetrieved = await productModel.get(forkCreated._id);
   verifyProps(forkData, forkRetrieved);
@@ -58,18 +59,7 @@ it('should delete', async () => {
   expect(allProducts.length).toBe(0);
 });
 
-async function createFork(name='fork', display_name='Fork', category='silverware',description='pointy guy' ) {
-  const forkData = {name, display_name, category, description};
+async function createFork(name='fork', display_name='Fork', category='silverware') {
+  const forkData = {name, display_name, category};
   return productModel.post(forkData);
-}
-
-function verifyProps(a, b) {
-  for(let key in a) {
-
-    const valueA = a[key];
-
-    const valueB = b[key];
-
-    expect(valueA).toBe(valueB);
-  }
 }
