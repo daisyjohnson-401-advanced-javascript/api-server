@@ -1,3 +1,5 @@
+'use strict';
+
 function verifyProps(a, b) {
   for(let key in a) {
 
